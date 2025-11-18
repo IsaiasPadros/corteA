@@ -1,0 +1,20 @@
+:root {
+  /* Colores oficiales */
+  --color-azul: #2B2C4E;
+  --color-naranja: #FFA500;
+  --color-gris-oscuro: #4D4D4D;
+  --color-blanco: #FFFFFF;
+  
+  /* Fuentes */
+  --fuente-principal: 'Roboto', sans-serif;
+  --peso-titulo: 900;    /* Roboto Black */
+  --peso-normal: 400;    /* Roboto Regular */
+  --peso-pie: 100;       /* Roboto Thin */
+  
+  /* Tamaños */
+  --espaciado-seccion: 2rem;
+  --radio-borde: 4px;
+  
+  /* Transiciones */
+  --transicion-rapida: 0.3s ease;
+} 
