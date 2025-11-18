@@ -8,7 +8,7 @@ function PieDePagina() {
       <div className="contenedor">
         <div className="pie-contenido">
           <div className="pie-seccion">
-            <h3>Javier Pérez Alzaga </h3>
+            <h3>Corte A </h3>
             <p>Tu hogar ideal comienza con nosotros</p>
           </div>
           

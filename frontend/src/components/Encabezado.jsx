@@ -52,7 +52,7 @@ function Encabezado({ cambiarSeccion, seccionActual }) {
           <div className="logo">
             <NavLink to="/" onClick={() => handleClick('inicio')}>
               <img src="/assets/favicon.ico" alt="Logo" className="logo-icon" />
-              <h1 className="logo-text">Javier Pérez Alzaga</h1>
+              <h1 className="logo-text">Corte A</h1>
             </NavLink>
           </div>
           
