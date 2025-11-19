@@ -143,10 +143,10 @@ function Inicio() {
         </video>
         <div className="banner-overlay"></div>
         <div className="banner-contenido">
-          <h2>Encuentra la propiedad de tus sueños</h2>
-          <p>Las mejores opciones en venta y alquiler en toda la ciudad</p>
-          <a href="#propiedades" className="boton-principal">Explorar Propiedades</a>
-          <div className="scroll-indicador">↓</div>
+          <h2>Proyectamos tu espacio interior</h2>
+          {/* <p>Creemos que amoblar es sinónimo de invertir en tus sueños</p> */}
+          {/* <a href="#propiedades" className="boton-principal">Explorar Propiedades</a> */}
+          {/* <div className="scroll-indicador">↓</div> */}
         </div>
       </section>
 

@@ -40,20 +40,24 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: left;
   padding: 2rem;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0;
+  margin-left: 2rem;
   z-index: 2; /* Mayor que el overlay para que el contenido sea visible */
 }
 
 .banner h2 {
-  font-size: 3rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
   color: var(--color-texto-claro);
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  line-height: 1.1;
 }
 
 .banner p {
@@ -64,6 +68,8 @@
 .scroll-indicador {
   position: absolute;
   bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 2rem;
   animation: bounce 2s infinite;
   color: var(--color-texto-claro);
@@ -398,7 +404,8 @@
   }
   
   .banner h2 {
-    font-size: 2.5rem;
+    font-size: 4.5rem;
+    letter-spacing: 0.08em;
   }
 }
 
@@ -407,8 +414,14 @@
     height: 80vh;
   }
   
+  .banner-contenido {
+    margin-left: 1rem;
+    padding: 1.5rem;
+  }
+  
   .banner h2 {
-    font-size: 2rem;
+    font-size: 3.5rem;
+    letter-spacing: 0.06em;
   }
   
   .banner p {
@@ -444,8 +457,14 @@
     height: 70vh;
   }
   
+  .banner-contenido {
+    margin-left: 1rem;
+    padding: 1rem;
+  }
+  
   .banner h2 {
-    font-size: 1.8rem;
+    font-size: 2.8rem;
+    letter-spacing: 0.05em;
   }
   
   .banner p {

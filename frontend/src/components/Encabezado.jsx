@@ -81,7 +81,7 @@ function Encabezado({ cambiarSeccion, seccionActual }) {
                     handleClick('propiedades');
                   }}
                 >
-                  Propiedades
+                  Muebles
                 </a>
               </li>
               <li className={seccionActual === 'servicios' ? 'activo' : ''}>
