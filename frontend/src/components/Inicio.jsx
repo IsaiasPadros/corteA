@@ -133,7 +133,7 @@ function Inicio() {
           loop 
           muted 
           playsInline
-          poster="https://via.placeholder.com/1920x1080/2B2C4E/FFFFFF?text=Inmobiliaria"
+          poster="https://via.placeholder.com/1920x1080/C9B59C/F9F8F6?text=Inmobiliaria"
         >
           <source src="https://assets.mixkit.co/videos/4009/4009-720.mp4" type="video/mp4" />
           Tu navegador no soporta videos HTML5.

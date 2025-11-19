@@ -1,9 +1,17 @@
 :root {
-  /* Colores oficiales */
-  --color-azul: #2B2C4E;
-  --color-naranja: #FFA500;
-  --color-gris-oscuro: #4D4D4D;
-  --color-blanco: #FFFFFF;
+  /* Paleta de colores beige/taupe */
+  --color-principal: #C9B59C;
+  --color-secundario: #D9CFC7;
+  --color-fondo-secundario: #EFE9E3;
+  --color-fondo-principal: #F9F8F6;
+  --color-texto-oscuro: #8B7355;
+  --color-texto-claro: #F9F8F6;
+  
+  /* Colores legacy (mapeados a nueva paleta) */
+  --color-azul: #C9B59C;
+  --color-naranja: #C9B59C;
+  --color-gris-oscuro: #8B7355;
+  --color-blanco: #F9F8F6;
   
   /* Fuentes */
   --fuente-principal: 'Roboto', sans-serif;
@@ -12,9 +20,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light;
+  color: rgba(139, 115, 85, 0.87);
+  background-color: #F9F8F6;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -36,8 +44,8 @@ html {
 
 body {
   font-family: var(--fuente-principal);
-  color: var(--color-gris-oscuro);
-  background-color: var(--color-blanco);
+  color: var(--color-texto-oscuro);
+  background-color: var(--color-fondo-principal);
   line-height: 1.6;
   width: 100%;
   overflow-x: hidden;
@@ -47,7 +55,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--fuente-principal);
   font-weight: 900; /* Roboto Black */
-  color: var(--color-azul);
+  color: var(--color-principal);
   margin-bottom: 1rem;
 }
 
@@ -63,18 +71,18 @@ footer {
 }
 
 a {
-  color: var(--color-azul);
+  color: var(--color-principal);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--color-naranja);
+  color: var(--color-texto-oscuro);
 }
 
 button {
-  background-color: var(--color-azul);
-  color: var(--color-blanco);
+  background-color: var(--color-principal);
+  color: var(--color-texto-claro);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -85,7 +93,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--color-naranja);
+  background-color: var(--color-texto-oscuro);
 }
 
 .contenedor {
@@ -97,13 +105,13 @@ button:hover {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #8B7355;
+    background-color: #F9F8F6;
   }
   a:hover {
-    color: #747bff;
+    color: #8B7355;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #C9B59C;
   }
 }

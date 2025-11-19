@@ -1,9 +1,17 @@
 :root {
-  /* Colores oficiales */
-  --color-azul: #2B2C4E;
-  --color-naranja: #FFA500;
-  --color-gris-oscuro: #4D4D4D;
-  --color-blanco: #FFFFFF;
+  /* Paleta de colores beige/taupe */
+  --color-principal: #C9B59C;        /* Beige medio/tan - color principal y acentos */
+  --color-secundario: #D9CFC7;       /* Taupe claro/greige - bordes y elementos secundarios */
+  --color-fondo-secundario: #EFE9E3; /* Beige claro - fondos secundarios */
+  --color-fondo-principal: #F9F8F6;  /* Muy claro, casi blanco - fondo principal */
+  --color-texto-oscuro: #8B7355;     /* Beige oscuro derivado - texto principal */
+  --color-texto-claro: #F9F8F6;      /* Texto claro sobre fondos oscuros */
+  
+  /* Colores legacy (mapeados a nueva paleta) */
+  --color-azul: #C9B59C;             /* Mapeado a color principal */
+  --color-naranja: #C9B59C;          /* Mapeado a color principal para consistencia */
+  --color-gris-oscuro: #8B7355;      /* Mapeado a texto oscuro */
+  --color-blanco: #F9F8F6;           /* Mapeado a fondo principal */
   
   /* Fuentes */
   --fuente-principal: 'Roboto', sans-serif;

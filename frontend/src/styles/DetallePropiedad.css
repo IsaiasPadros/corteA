@@ -11,7 +11,7 @@
 
 .boton-volver {
   background: transparent;
-  color: var(--color-azul);
+  color: var(--color-principal);
   border: none;
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -22,7 +22,7 @@
 }
 
 .boton-volver:hover {
-  color: var(--color-naranja);
+  color: var(--color-texto-oscuro);
   background: transparent;
 }
 
@@ -75,8 +75,8 @@
 }
 
 .boton-mas-fotos {
-  background: rgba(43, 44, 78, 0.7);
-  color: white;
+  background: rgba(201, 181, 156, 0.7);
+  color: var(--color-texto-claro);
   border: none;
   padding: 0 1rem;
   border-radius: 4px;
@@ -90,7 +90,7 @@
 .galeria-opciones {
   display: flex;
   justify-content: space-between;
-  background-color: #222;
+  background-color: var(--color-secundario);
   border-radius: 8px;
   margin-top: 1rem;
   overflow: hidden;
@@ -98,7 +98,7 @@
 
 .opcion {
   background: transparent;
-  color: white;
+  color: var(--color-texto-oscuro);
   border: none;
   padding: 0.8rem 0.5rem;
   flex: 1;
@@ -112,27 +112,28 @@
 }
 
 .opcion:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(201, 181, 156, 0.2);
 }
 
 .opcion.activa {
-  background-color: #000;
-  border-bottom: 2px solid var(--color-naranja);
+  background-color: var(--color-principal);
+  border-bottom: 2px solid var(--color-texto-oscuro);
+  color: var(--color-texto-claro);
 }
 
 /* Nueva sección Características de la Propiedad en Galería */
 .galeria-caracteristicas-propiedad {
   margin-top: 2rem;
   padding: 1.5rem;
-  background-color: var(--color-blanco);
-  border-left: 4px solid var(--color-azul); /* Borde izquierdo azul */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra suave como en la imagen */
-  border-radius: 0 8px 8px 0; /* Bordes redondeados, excepto el izquierdo */
+  background-color: var(--color-fondo-principal);
+  border-left: 4px solid var(--color-principal);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 0 8px 8px 0;
 }
 
 .galeria-caracteristicas-propiedad h3 {
-  font-size: 1.1rem; /* Un poco más pequeño que otros h3 */
-  color: var(--color-azul);
+  font-size: 1.1rem;
+  color: var(--color-principal);
   margin-bottom: 1rem;
   font-weight: bold;
 }
@@ -144,7 +145,7 @@
 }
 
 .galeria-caracteristicas-propiedad li {
-  color: var(--color-gris-oscuro);
+  color: var(--color-texto-oscuro);
   margin-bottom: 0.6rem;
   display: flex;
   align-items: center;
@@ -152,9 +153,9 @@
 }
 
 .galeria-caracteristicas-propiedad li span {
-  color: var(--color-naranja); /* Check naranja */
+  color: var(--color-principal);
   margin-right: 0.75rem;
-  font-size: 1.1rem; /* Hacer el check un poco más grande */
+  font-size: 1.1rem;
   font-weight: bold;
 }
 
@@ -181,18 +182,18 @@
 
 .detalle-titulo {
   font-size: 2rem;
-  color: var(--color-azul);
+  color: var(--color-principal);
   margin-bottom: 0.5rem;
 }
 
 .detalle-direccion {
   font-size: 1.3rem;
-  color: var(--color-gris-oscuro);
+  color: var(--color-texto-oscuro);
   margin-bottom: 0.2rem;
 }
 
 .detalle-ubicacion {
-  color: var(--color-gris-oscuro);
+  color: var(--color-texto-oscuro);
   font-size: 1rem;
 }
 
@@ -204,7 +205,7 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: var(--color-azul);
+  color: var(--color-principal);
 }
 
 .detalle-caracteristicas {
@@ -212,8 +213,8 @@
   justify-content: space-between;
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid var(--color-secundario);
+  border-bottom: 1px solid var(--color-secundario);
   padding: 1.5rem 0;
 }
 
@@ -234,14 +235,14 @@
 
 .caracteristica-valor {
   font-weight: bold;
-  color: var(--color-azul);
+  color: var(--color-principal);
   font-size: 1.1rem;
   margin-bottom: 0.2rem;
 }
 
 .caracteristica-etiqueta {
   font-size: 0.9rem;
-  color: var(--color-gris-oscuro);
+  color: var(--color-texto-oscuro);
 }
 
 .detalle-descripcion {
@@ -252,12 +253,12 @@
 .detalle-adicionales h3 {
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  color: var(--color-azul);
+  color: var(--color-principal);
 }
 
 .detalle-descripcion p {
   line-height: 1.6;
-  color: var(--color-gris-oscuro);
+  color: var(--color-texto-oscuro);
 }
 
 .adicionales-grid {
@@ -274,17 +275,17 @@
 .adicional-etiqueta {
   font-weight: bold;
   margin-right: 0.5rem;
-  color: var(--color-azul);
+  color: var(--color-principal);
 }
 
 .adicional-valor {
-  color: var(--color-gris-oscuro);
+  color: var(--color-texto-oscuro);
 }
 
 /* Sección de contacto */
 .detalle-contacto {
   flex: 1;
-  background-color: #f8f8f8;
+  background-color: var(--color-fondo-secundario);
   padding: 1.5rem;
   border-radius: 8px;
   align-self: flex-start;
@@ -294,7 +295,7 @@
 .detalle-contacto h3 {
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
-  color: var(--color-azul);
+  color: var(--color-principal);
   text-align: center;
 }
 
@@ -312,21 +313,21 @@
 .textarea-formulario {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid var(--color-azul); /* Borde del mismo color que el fondo para un look plano */
+  border: 1px solid var(--color-secundario);
   border-radius: 4px;
   font-family: var(--fuente-principal);
   font-size: 1rem;
-  background-color: var(--color-azul); /* Fondo azul oscuro */
-  color: var(--color-blanco); /* Texto blanco */
-  -webkit-appearance: none; /* Para quitar estilos por defecto en algunos navegadores */
+  background-color: var(--color-fondo-principal);
+  color: var(--color-texto-oscuro);
+  -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
 .input-formulario::placeholder, 
 .textarea-formulario::placeholder {
-  color: rgba(255, 255, 255, 0.7); /* Placeholder blanco semitransparente */
-  opacity: 1; /* Asegurar visibilidad en todos los navegadores */
+  color: var(--color-secundario);
+  opacity: 1;
 }
 
 /* Estilos para asegurar que los selects (si se añaden en el futuro) también se vean bien */
@@ -344,8 +345,8 @@ select.input-formulario {
 .boton-enviar {
   width: 100%;
   padding: 0.8rem;
-  background-color: var(--color-naranja);
-  color: white;
+  background-color: var(--color-principal);
+  color: var(--color-texto-claro);
   border: none;
   border-radius: 4px;
   font-size: 1rem;
@@ -354,7 +355,7 @@ select.input-formulario {
 }
 
 .boton-enviar:hover {
-  background-color: #e69400;
+  background-color: var(--color-texto-oscuro);
 }
 
 /* Estilos responsivos */

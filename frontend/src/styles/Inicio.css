@@ -7,11 +7,11 @@
   position: relative;
   height: 71vh;
   min-height: 500px;
-  color: var(--color-blanco);
+  color: var(--color-texto-claro);
   overflow: hidden;
   margin-bottom: var(--espaciado-seccion);
   width: 100%;
-  background-color: var(--color-azul); /* Color de respaldo si el video falla */
+  background-color: var(--color-principal); /* Color de respaldo si el video falla */
 }
 
 .banner-video {
@@ -31,7 +31,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(43, 44, 78, 0.7);
+  background: rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 
@@ -51,7 +51,7 @@
 
 .banner h2 {
   font-size: 3rem;
-  color: var(--color-blanco);
+  color: var(--color-texto-claro);
   margin-bottom: 1.5rem;
   text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
@@ -66,7 +66,7 @@
   bottom: 2rem;
   font-size: 2rem;
   animation: bounce 2s infinite;
-  color: var(--color-blanco);
+  color: var(--color-texto-claro);
 }
 
 @keyframes bounce {
@@ -117,8 +117,8 @@
 }
 
 .boton-principal {
-  background-color: var(--color-naranja);
-  color: var(--color-blanco);
+  background-color: var(--color-principal);
+  color: var(--color-texto-claro);
   padding: 0.8rem 1.5rem;
   border: none;
   border-radius: var(--radio-borde);
@@ -132,9 +132,9 @@
 }
 
 .boton-principal:hover {
-  background-color: #e69400;
+  background-color: var(--color-texto-oscuro);
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(255, 165, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(201, 181, 156, 0.3);
 }
 
 .boton-principal:active {
@@ -143,8 +143,8 @@
 
 .boton-secundario {
   background-color: transparent;
-  color: var(--color-azul);
-  border: 2px solid var(--color-azul);
+  color: var(--color-principal);
+  border: 2px solid var(--color-principal);
   padding: 0.8rem 1.5rem;
   border-radius: var(--radio-borde);
   font-size: 1rem;
@@ -157,10 +157,10 @@
 }
 
 .boton-secundario:hover {
-  background-color: var(--color-azul);
-  color: var(--color-blanco);
+  background-color: var(--color-principal);
+  color: var(--color-texto-claro);
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(43, 44, 78, 0.2);
+  box-shadow: 0 5px 15px rgba(201, 181, 156, 0.2);
 }
 
 .boton-secundario:active {
@@ -201,7 +201,7 @@
 }
 
 .tarjeta-servicio {
-  background-color: var(--color-azul);
+  background-color: var(--color-principal);
   padding: 2rem;
   border-radius: var(--radio-borde);
   text-align: center;
@@ -252,7 +252,7 @@
   right: 0;
   width: 30%;
   height: 8px;
-  background-color: var(--color-naranja);
+  background-color: var(--color-texto-oscuro);
   transition: width 0.3s ease;
 }
 
@@ -263,7 +263,7 @@
 .servicio-icono {
   font-size: 3rem;
   margin-bottom: 1.5rem;
-  color: var(--color-naranja);
+  color: var(--color-texto-claro);
   transition: transform 0.3s ease;
 }
 
@@ -272,27 +272,27 @@
 }
 
 .tarjeta-servicio h3 {
-  color: var(--color-blanco);
+  color: var(--color-texto-claro);
   margin-bottom: 1rem;
 }
 
 .tarjeta-servicio p {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(249, 248, 246, 0.9);
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
 /* Mantener el fondo adecuado para la sección de servicios */
 .destacados-seccion.fondo-gris {
-  background-color: var(--color-blanco);
+  background-color: var(--color-fondo-secundario);
 }
 
 .destacados-seccion.fondo-gris .destacados-encabezado h2 {
-  color: var(--color-azul);
+  color: var(--color-principal);
 }
 
 .destacados-seccion.fondo-gris .destacados-encabezado .subtitulo {
-  color: var(--color-gris-oscuro);
+  color: var(--color-texto-oscuro);
 }
 
 /* Media queries para servicios */
@@ -320,7 +320,7 @@
 .contacto-rapido {
   position: relative;
   background: none;
-  color: var(--color-azul);
+  color: var(--color-principal);
   padding: 5rem 2rem;
   text-align: center;
   margin-top: var(--espaciado-seccion);
@@ -346,11 +346,11 @@
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background-color: var(--color-naranja);
+  background-color: var(--color-principal);
 }
 
 .contacto-rapido h2 {
-  color: var(--color-azul);
+  color: var(--color-principal);
   margin-bottom: 1rem;
   font-size: 2.5rem;
   font-weight: 600;
@@ -360,13 +360,13 @@
 .contacto-rapido p {
   margin-bottom: 2.5rem;
   font-size: 1.2rem;
-  color: var(--color-gris-oscuro);
+  color: var(--color-texto-oscuro);
   animation: fadeIn 0.8s ease-out 0.2s both;
 }
 
 .boton-contacto {
-  background-color: var(--color-azul);
-  color: var(--color-blanco);
+  background-color: var(--color-principal);
+  color: var(--color-texto-claro);
   padding: 1rem 2rem;
   border: none;
   border-radius: var(--radio-borde);
@@ -376,14 +376,14 @@
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: inline-block;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(43, 44, 78, 0.2);
+  box-shadow: 0 4px 15px rgba(201, 181, 156, 0.2);
   animation: fadeIn 0.8s ease-out 0.4s both;
 }
 
 .boton-contacto:hover {
-  background-color: var(--color-naranja);
+  background-color: var(--color-texto-oscuro);
   transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 8px 25px rgba(255, 165, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(201, 181, 156, 0.3);
 }
 
 .centrado {

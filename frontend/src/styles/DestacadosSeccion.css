@@ -5,7 +5,7 @@
 }
 
 .destacados-seccion.fondo-gris {
-  background-color: #f8f8f8;
+  background-color: var(--color-fondo-secundario);
 }
 
 .destacados-encabezado {
@@ -15,13 +15,13 @@
 
 .destacados-encabezado h2 {
   font-size: 2rem;
-  color: var(--color-azul);
+  color: var(--color-principal);
   margin-bottom: 1rem;
 }
 
 .destacados-encabezado .subtitulo {
   font-size: 1.1rem;
-  color: var(--color-gris-oscuro);
+  color: var(--color-texto-oscuro);
   max-width: 600px;
   margin: 0 auto;
 }

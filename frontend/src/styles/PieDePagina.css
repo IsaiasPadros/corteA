@@ -1,6 +1,6 @@
 .pie-de-pagina {
-  background-color: var(--color-azul);
-  color: var(--color-blanco);
+  background-color: var(--color-principal);
+  color: var(--color-texto-claro);
   padding: 2rem 0 1rem;
   margin-top: 0;
   width: 100%;
@@ -14,13 +14,13 @@
 }
 
 .pie-seccion h3 {
-  color: var(--color-blanco);
+  color: var(--color-texto-claro);
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
 .pie-seccion h4 {
-  color: var(--color-blanco);
+  color: var(--color-texto-claro);
   margin-bottom: 1rem;
   font-size: 1.2rem;
 }
@@ -39,13 +39,13 @@
 }
 
 .pie-links a {
-  color: var(--color-blanco);
+  color: var(--color-texto-claro);
   text-decoration: none;
   transition: color var(--transicion-rapida);
 }
 
 .pie-links a:hover {
-  color: var(--color-naranja);
+  color: var(--color-texto-oscuro);
 }
 
 address {
