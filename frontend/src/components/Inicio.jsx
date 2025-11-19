@@ -1,12 +1,14 @@
 import '../styles/Inicio.css'
 import TarjetaPropiedad from './TarjetaPropiedad'
 import DestacadosSeccion from './DestacadosSeccion'
+import CategoriasMuebles from './CategoriasMuebles'
 import { useEffect, useRef, useState } from 'react'
 
 function Inicio() {
   const videoRef = useRef(null);
   const [isVisible, setIsVisible] = useState({
     propiedades: false,
+    categorias: false,
     servicios: false,
     contacto: false
   });
@@ -168,6 +170,14 @@ function Inicio() {
             <a href="#propiedades" className="boton-secundario">Ver Todas las Propiedades</a>
           </div>
         </DestacadosSeccion>
+      </section>
+
+      {/* Sección de categorías de muebles */}
+      <section 
+        data-section="categorias" 
+        className={`section-animate ${isVisible.categorias ? 'visible' : ''}`}
+      >
+        <CategoriasMuebles />
       </section>
 
       {/* Sección de servicios */}
