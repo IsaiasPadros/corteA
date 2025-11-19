@@ -138,7 +138,7 @@ function Inicio() {
           playsInline
           poster="https://via.placeholder.com/1920x1080/C9B59C/F9F8F6?text=Inmobiliaria"
         >
-          <source src="https://assets.mixkit.co/videos/4009/4009-720.mp4" type="video/mp4" />
+          <source src="https://assets.mixkit.co/videos/39492/39492-720.mp4" type="video/mp4" />
           Tu navegador no soporta videos HTML5.
         </video>
         <div className="banner-overlay"></div>
