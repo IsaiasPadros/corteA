@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import '../styles/DetalleProducto.css'
 
@@ -50,11 +50,16 @@ function DetalleProducto() {
     console.log('Código postal actualizado:', codigoPostal)
   }
 
+  // Efecto para scroll al inicio y activar animaciones
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div className="detalle-producto">
       <div className="detalle-producto-contenedor">
         {/* Breadcrumbs */}
-        <div className="breadcrumbs">
+        <div className="breadcrumbs animado-breadcrumbs">
           <Link to="/">INICIO</Link>
           <span> / </span>
           <span>{producto.categoria}</span>
@@ -63,12 +68,13 @@ function DetalleProducto() {
         {/* Contenedor principal */}
         <div className="producto-layout">
           {/* Columna izquierda - Miniaturas */}
-          <div className="producto-miniaturas">
+          <div className="producto-miniaturas animado-miniaturas">
             {producto.imagenes.map((imagen, index) => (
               <div
                 key={index}
-                className={`miniatura ${imagenPrincipal === index ? 'activa' : ''}`}
+                className={`miniatura animado-miniatura ${imagenPrincipal === index ? 'activa' : ''}`}
                 onClick={() => handleCambiarImagen(index)}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <img src={imagen} alt={`Vista ${index + 1}`} />
               </div>
@@ -76,32 +82,35 @@ function DetalleProducto() {
           </div>
 
           {/* Columna central - Imagen principal */}
-          <div className="producto-imagen-principal">
+          <div className="producto-imagen-principal animado-imagen">
             <img src={producto.imagenes[imagenPrincipal]} alt={producto.titulo} />
-            <div className="imagen-caption">
+            <div className="imagen-caption animado-caption">
               {tamañoSeleccionado} mostrado en {acabadoSeleccionado}
             </div>
-            <button className="boton-compartir-producto">
+            <button className="boton-compartir-producto animado-compartir">
               <span>↑</span> Compartir
             </button>
           </div>
 
           {/* Columna derecha - Información del producto */}
           <div className="producto-informacion">
-            <div className="producto-badge">MÁS VENDIDO</div>
-            <h1 className="producto-titulo">{producto.titulo} ({tamañoSeleccionado})</h1>
-            <div className="producto-precio">{producto.precio}</div>
+            <div className="producto-badge animado-badge">MÁS VENDIDO</div>
+            <h1 className="producto-titulo animado-titulo">{producto.titulo} ({tamañoSeleccionado})</h1>
+            <div className="producto-precio animado-precio">{producto.precio}</div>
 
             {/* Selector de acabado de madera */}
-            <div className="selector-acabado">
+            <div className="selector-acabado animado-acabado">
               <label>Seleccionar Acabado de Madera: {acabadoSeleccionado}</label>
               <div className="acabados-grid">
-                {producto.acabados.map((acabado) => (
+                {producto.acabados.map((acabado, index) => (
                   <div
                     key={acabado.nombre}
-                    className={`acabado-swatch ${acabadoSeleccionado === acabado.nombre ? 'seleccionado' : ''}`}
+                    className={`acabado-swatch animado-swatch ${acabadoSeleccionado === acabado.nombre ? 'seleccionado' : ''}`}
                     onClick={() => setAcabadoSeleccionado(acabado.nombre)}
-                    style={{ backgroundColor: acabado.color }}
+                    style={{ 
+                      backgroundColor: acabado.color,
+                      animationDelay: `${0.4 + index * 0.1}s`
+                    }}
                     title={acabado.nombre}
                   />
                 ))}
@@ -109,7 +118,7 @@ function DetalleProducto() {
             </div>
 
             {/* Disponibilidad */}
-            <div className="disponibilidad">
+            <div className="disponibilidad animado-disponibilidad">
               {producto.disponible ? (
                 <span className="disponible">En Stock y Listo para Enviar</span>
               ) : (
@@ -118,7 +127,7 @@ function DetalleProducto() {
             </div>
 
             {/* Hecho a pedido */}
-            <div className="hecho-pedido">
+            <div className="hecho-pedido animado-pedido">
               <label>Hecho a Pedido</label>
               <div className="acabado-pedido">
                 <div className="swatch-pedido" style={{ backgroundColor: '#000' }}></div>
@@ -126,15 +135,16 @@ function DetalleProducto() {
             </div>
 
             {/* Selector de tamaño */}
-            <div className="selector-tamaño">
+            <div className="selector-tamaño animado-tamaño">
               <label>Seleccionar Tamaño: {tamañoSeleccionado}</label>
               <div className="tamaños-grid">
-                {producto.tamaños.map((tam) => (
+                {producto.tamaños.map((tam, index) => (
                   <button
                     key={tam.tamaño}
-                    className={`boton-tamaño ${tamañoSeleccionado === tam.tamaño ? 'seleccionado' : ''} ${!tam.disponible ? 'no-disponible' : ''}`}
+                    className={`boton-tamaño animado-boton-tamaño ${tamañoSeleccionado === tam.tamaño ? 'seleccionado' : ''} ${!tam.disponible ? 'no-disponible' : ''}`}
                     onClick={() => tam.disponible && setTamañoSeleccionado(tam.tamaño)}
                     disabled={!tam.disponible}
+                    style={{ animationDelay: `${0.7 + index * 0.1}s` }}
                   >
                     {tam.tamaño}
                   </button>
@@ -143,7 +153,7 @@ function DetalleProducto() {
             </div>
 
             {/* Entrega y recogida */}
-            <div className="entrega-opciones">
+            <div className="entrega-opciones animado-entrega">
               <div className="opcion-entrega">
                 <input
                   type="radio"
@@ -157,7 +167,7 @@ function DetalleProducto() {
                 </label>
               </div>
               <div className="sin-estimacion">No hay estimación disponible.</div>
-              
+               
               <div className="input-codigo-postal">
                 <input
                   type="text"
@@ -180,7 +190,7 @@ function DetalleProducto() {
             </div>
 
             {/* Plan de protección */}
-            <div className="plan-proteccion">
+            <div className="plan-proteccion animado-proteccion">
               <label className="checkbox-proteccion">
                 <input
                   type="checkbox"
@@ -195,8 +205,13 @@ function DetalleProducto() {
             </div>
 
             {/* Botón de agregar al carrito */}
-            <button className="boton-agregar-carrito">
-              Agregar al Carrito
+            <button className="boton-agregar-carrito animado-carrito">
+              <svg className="icono-carrito" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              Agregar a la cesta
             </button>
           </div>
         </div>
