@@ -4,6 +4,7 @@ import Encabezado from './components/Encabezado'
 import PieDePagina from './components/PieDePagina'
 import Inicio from './components/Inicio'
 import DetallePropiedad from './components/DetallePropiedad'
+import DetalleProducto from './components/DetalleProducto'
 import './styles/global.css'
 
 // Componente para manejar los parámetros de la URL en DetallePropiedad
@@ -64,6 +65,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Inicio />} />
             <Route path="/propiedad/:id" element={<DetalleWrapper />} />
+            <Route path="/producto/:id" element={<DetalleProducto />} />
           </Routes>
         </main>
         <PieDePagina />

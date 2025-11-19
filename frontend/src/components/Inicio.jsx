@@ -50,39 +50,40 @@ function Inicio() {
     };
   }, []);
 
-  // Propiedades destacadas (muestra de datos para el ejemplo)
-  const propiedadesDestacadas = [
+  // Productos más vendidos (muebles de carpintería)
+  const productosMasVendidos = [
     {
       id: 1,
-      titulo: 'Casa Moderna con Jardín',
-      ubicacion: 'Barrio Residencial, Ciudad',
-      precio: '250,000',
-      habitaciones: 3,
-      banos: 2,
-      metros: 150,
-      imagen: 'https://cdn-images.xintelweb.com/upload/jai655_2.jpg?132749'
+      titulo: 'Escritorio de Madera',
+      ubicacion: 'Hecho a mano con madera maciza',
+      precio: '45,000',
+      habitaciones: 'Pino',
+      banos: 'Natural',
+      metros: '120x60',
+      imagen: 'https://plus.unsplash.com/premium_photo-1664193968829-4a732c3390e6?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8'
     },
     {
       id: 2,
-      titulo: 'Apartamento Céntrico',
-      ubicacion: 'Centro, Ciudad',
-      precio: '180,000',
-      habitaciones: 2,
-      banos: 1,
-      metros: 85,
-      imagen: 'https://cdn-images.xintelweb.com/upload/jai803_2.jpg?159963'
+      titulo: 'Mesa para Café',
+      ubicacion: 'Diseño moderno y funcional',
+      precio: '32,000',
+      habitaciones: 'Roble',
+      banos: 'Caoba',
+      metros: '180x45',
+      imagen: 'https://assets.weimgs.com/weimgs/ab/images/wcm/products/202528/0320/calla-coffee-table-48-xl.jpg'
     },
     {
       id: 3,
-      titulo: 'Chalet con Piscina',
-      ubicacion: 'Zona Residencial, Ciudad',
-      precio: '350,000',
-      habitaciones: 4,
-      banos: 3,
-      metros: 220,
-      imagen: 'https://cdn-images.xintelweb.com/upload/jai531_2.jpg?352790'
+      titulo: 'Mueble para Ropa',
+      ubicacion: 'Amplio espacio de almacenamiento',
+      precio: '55,000',
+      habitaciones: 'Cedro',
+      banos: 'Claro',
+      metros: '200x60',
+      imagen: 'https://images.unsplash.com/photo-1649320101559-acf9dd4c5f5b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     }
-  ]
+  ];
+  
 
   // Servicios destacados
   const serviciosDestacados = [
@@ -149,25 +150,25 @@ function Inicio() {
         </div>
       </section>
 
-      {/* Sección de propiedades destacadas */}
+      {/* Sección de productos más vendidos */}
       <section 
         data-section="propiedades" 
         className={`section-animate ${isVisible.propiedades ? 'visible' : ''}`}
       >
         <DestacadosSeccion 
-          titulo="Propiedades Destacadas" 
-          subtitulo="Las mejores opciones seleccionadas para ti"
+          titulo="Productos más vendidos" 
+          subtitulo="Muebles de carpintería artesanal de la más alta calidad"
         >
           <div className="propiedades-grid">
-            {propiedadesDestacadas.map(propiedad => (
+            {productosMasVendidos.map(producto => (
               <TarjetaPropiedad 
-                key={propiedad.id} 
-                propiedad={propiedad} 
+                key={producto.id} 
+                propiedad={producto} 
               />
             ))}
           </div>
           <div className="centrado">
-            <a href="#propiedades" className="boton-secundario">Ver Todas las Propiedades</a>
+            <a href="#productos" className="boton-secundario">Ver Todos los Productos</a>
           </div>
         </DestacadosSeccion>
       </section>

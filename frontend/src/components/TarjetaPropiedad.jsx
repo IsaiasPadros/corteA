@@ -16,21 +16,21 @@ function TarjetaPropiedad({ propiedad }) {
         
         <div className="caracteristicas">
           <div className="caracteristica">
-            <span className="caracteristica-icono">🛏️</span>
-            <span>{habitaciones} Hab.</span>
+            <span className="caracteristica-icono">🪵</span>
+            <span>{habitaciones}</span>
           </div>
           <div className="caracteristica">
-            <span className="caracteristica-icono">🚿</span>
-            <span>{banos} Baños</span>
+            <span className="caracteristica-icono">✨</span>
+            <span>{banos}</span>
           </div>
           <div className="caracteristica">
             <span className="caracteristica-icono">📏</span>
-            <span>{metros} m²</span>
+            <span>{metros} cm</span>
           </div>
         </div>
         
         <Link 
-          to={`/propiedad/${id}`} 
+          to={`/producto/${id}`} 
           className="boton-detalles"
         >
           Ver Detalles
