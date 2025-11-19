@@ -93,6 +93,17 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
 @keyframes slideInRight {
   from { opacity: 0; transform: translateX(-30px); }
   to { opacity: 1; transform: translateX(0); }
@@ -151,22 +162,24 @@
   background-color: transparent;
   color: var(--color-principal);
   border: 2px solid var(--color-principal);
-  padding: 0.8rem 1.5rem;
-  border-radius: var(--radio-borde);
+  padding: 0.9rem 2rem;
+  border-radius: 6px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: inline-block;
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(201, 181, 156, 0.1);
 }
 
 .boton-secundario:hover {
   background-color: var(--color-principal);
   color: var(--color-texto-claro);
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(201, 181, 156, 0.2);
+  box-shadow: 0 6px 20px rgba(201, 181, 156, 0.3);
 }
 
 .boton-secundario:active {
@@ -176,14 +189,14 @@
 /* Grid de propiedades con animación */
 .propiedades-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
   width: 100%;
 }
 
 .propiedades-grid > div {
-  animation: scaleIn 0.6s ease-out both;
+  animation: fadeInUp 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
 
 .propiedades-grid > div:nth-child(1) {
@@ -191,11 +204,23 @@
 }
 
 .propiedades-grid > div:nth-child(2) {
-  animation-delay: 0.3s;
+  animation-delay: 0.25s;
 }
 
 .propiedades-grid > div:nth-child(3) {
-  animation-delay: 0.5s;
+  animation-delay: 0.4s;
+}
+
+.propiedades-grid > div:nth-child(4) {
+  animation-delay: 0.55s;
+}
+
+.propiedades-grid > div:nth-child(5) {
+  animation-delay: 0.7s;
+}
+
+.propiedades-grid > div:nth-child(6) {
+  animation-delay: 0.85s;
 }
 
 /* Grid de servicios con animación */
@@ -400,7 +425,8 @@
 /* Estilos responsive */
 @media (max-width: 992px) {
   .propiedades-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
   }
   
   .banner h2 {
@@ -428,7 +454,11 @@
     font-size: 1.1rem;
   }
   
-  .propiedades-grid,
+  .propiedades-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.75rem;
+  }
+  
   .servicios-grid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 1.5rem;
