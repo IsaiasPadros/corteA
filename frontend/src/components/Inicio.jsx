@@ -87,7 +87,7 @@ function Inicio() {
 
   // Función para abrir WhatsApp
   const abrirWhatsApp = () => {
-    const numero = '3815500862';
+    const numero = '3816322353';
     const mensaje = encodeURIComponent('Hola, me interesa conocer más sobre los servicios de Corte A.');
     const url = `https://wa.me/${numero}?text=${mensaje}`;
     window.open(url, '_blank');
@@ -194,7 +194,7 @@ function Inicio() {
                   </svg>
                   <span>Escribir por WhatsApp</span>
                 </button>
-                <p className="contacto-cortea-numero">+54 381 5500-862</p>
+                <p className="contacto-cortea-numero">+54 381 6322-353</p>
               </div>
             </div>
           </div>
