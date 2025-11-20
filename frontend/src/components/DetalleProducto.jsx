@@ -9,6 +9,7 @@ function DetalleProducto() {
   const [imagenPrincipal, setImagenPrincipal] = useState(0)
   const [codigoPostal, setCodigoPostal] = useState('')
   const [planProteccion, setPlanProteccion] = useState(false)
+  const [seccionAbierta, setSeccionAbierta] = useState(null)
 
   // Datos del producto (hardcodeados por ahora)
   const producto = {
@@ -48,6 +49,10 @@ function DetalleProducto() {
   const handleActualizarCodigoPostal = () => {
     // Lógica para actualizar el código postal
     console.log('Código postal actualizado:', codigoPostal)
+  }
+
+  const toggleSeccion = (seccion) => {
+    setSeccionAbierta(seccionAbierta === seccion ? null : seccion)
   }
 
   // Efecto para scroll al inicio y activar animaciones
@@ -213,6 +218,189 @@ function DetalleProducto() {
               </svg>
               Agregar a la cesta
             </button>
+          </div>
+        </div>
+
+        {/* Sección de Sostenibilidad */}
+        <div className="sostenibilidad-seccion animado-sostenibilidad">
+          <div className="sostenibilidad-banner">
+            <div className="sostenibilidad-texto">
+              <h2>Bueno para las Personas,<br />Bueno para el Planeta</h2>
+              <p>Así es como este producto marca la diferencia en el hogar y en el mundo:</p>
+            </div>
+            <div className="sostenibilidad-separador"></div>
+            <div className="sostenibilidad-certificacion">
+              <div className="certificacion-titulo">GREENGUARD</div>
+              <div className="certificacion-descripcion">
+                Producto certificado por bajas emisiones químicas. <a href="https://www.ul.com/gg" target="_blank" rel="noopener noreferrer">ul.com/gg</a> UL 2818
+              </div>
+            </div>
+          </div>
+
+          {/* Secciones Expandibles */}
+          <div className="secciones-expandibles">
+            <div className="seccion-expandible">
+              <button 
+                className={`seccion-header ${seccionAbierta === 'detalles' ? 'abierto' : ''}`}
+                onClick={() => toggleSeccion('detalles')}
+              >
+                <span>Detalles</span>
+                <svg 
+                  className={`icono-chevron ${seccionAbierta === 'detalles' ? 'rotado' : ''}`}
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              {seccionAbierta === 'detalles' && (
+                <div className="seccion-contenido">
+                  <p>Esta mesa para café está fabricada con madera maciza de origen sostenible, seleccionada cuidadosamente para garantizar durabilidad y belleza natural. El diseño moderno combina líneas limpias con acabados artesanales que resaltan la veta natural de la madera.</p>
+                  <ul>
+                    <li>Madera maciza de alta calidad</li>
+                    <li>Acabado natural que preserva la belleza de la madera</li>
+                    <li>Construcción robusta con uniones de carpintería tradicional</li>
+                    <li>Diseño atemporal que se adapta a diversos estilos decorativos</li>
+                    <li>Superficie resistente a manchas y rayones</li>
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <div className="seccion-expandible">
+              <button 
+                className={`seccion-header ${seccionAbierta === 'dimensiones' ? 'abierto' : ''}`}
+                onClick={() => toggleSeccion('dimensiones')}
+              >
+                <span>Dimensiones</span>
+                <svg 
+                  className={`icono-chevron ${seccionAbierta === 'dimensiones' ? 'rotado' : ''}`}
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              {seccionAbierta === 'dimensiones' && (
+                <div className="seccion-contenido">
+                  <div className="dimensiones-grid">
+                    <div className="dimension-item">
+                      <strong>48" (122 cm)</strong>
+                      <p>Ancho: 48" (122 cm)</p>
+                      <p>Profundidad: 24" (61 cm)</p>
+                      <p>Alto: 18" (46 cm)</p>
+                      <p>Peso: 35 kg</p>
+                    </div>
+                    <div className="dimension-item">
+                      <strong>58" (147 cm)</strong>
+                      <p>Ancho: 58" (147 cm)</p>
+                      <p>Profundidad: 28" (71 cm)</p>
+                      <p>Alto: 18" (46 cm)</p>
+                      <p>Peso: 42 kg</p>
+                    </div>
+                    <div className="dimension-item">
+                      <strong>68" (173 cm)</strong>
+                      <p>Ancho: 68" (173 cm)</p>
+                      <p>Profundidad: 32" (81 cm)</p>
+                      <p>Alto: 18" (46 cm)</p>
+                      <p>Peso: 50 kg</p>
+                    </div>
+                  </div>
+                  <p className="nota-dimensiones">* Las dimensiones pueden variar ligeramente debido a la naturaleza de la madera maciza.</p>
+                </div>
+              )}
+            </div>
+
+            <div className="seccion-expandible">
+              <button 
+                className={`seccion-header ${seccionAbierta === 'ensamblaje' ? 'abierto' : ''}`}
+                onClick={() => toggleSeccion('ensamblaje')}
+              >
+                <span>Ensamblaje y Cuidado</span>
+                <svg 
+                  className={`icono-chevron ${seccionAbierta === 'ensamblaje' ? 'rotado' : ''}`}
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              {seccionAbierta === 'ensamblaje' && (
+                <div className="seccion-contenido">
+                  <h4>Ensamblaje</h4>
+                  <p>Esta mesa viene completamente ensamblada y lista para usar. No se requiere montaje adicional. Nuestro equipo de entrega la colocará en el lugar que desees.</p>
+                  
+                  <h4>Cuidado y Mantenimiento</h4>
+                  <ul>
+                    <li><strong>Limpieza diaria:</strong> Usa un paño suave y ligeramente húmedo. Evita productos químicos agresivos.</li>
+                    <li><strong>Protección:</strong> Usa manteles o salvamanteles para proteger la superficie de objetos calientes o líquidos.</li>
+                    <li><strong>Humedad:</strong> Mantén la mesa alejada de fuentes de calor excesivo y humedad extrema para preservar la madera.</li>
+                    <li><strong>Acabado:</strong> Aplica aceite para muebles de madera cada 6-12 meses para mantener el brillo natural.</li>
+                    <li><strong>Reposicionamiento:</strong> Si necesitas mover la mesa, levántala completamente; no la arrastres.</li>
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <div className="seccion-expandible">
+              <button 
+                className={`seccion-header ${seccionAbierta === 'envio' ? 'abierto' : ''}`}
+                onClick={() => toggleSeccion('envio')}
+              >
+                <span>Envío y Devoluciones</span>
+                <svg 
+                  className={`icono-chevron ${seccionAbierta === 'envio' ? 'rotado' : ''}`}
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              {seccionAbierta === 'envio' && (
+                <div className="seccion-contenido">
+                  <h4>Envío</h4>
+                  <ul>
+                    <li><strong>Entrega con servicio completo:</strong> Nuestro equipo entregará y colocará la mesa en la habitación de tu elección.</li>
+                    <li><strong>Tiempo de entrega:</strong> 7-14 días hábiles después de la confirmación del pedido.</li>
+                    <li><strong>Embalaje:</strong> La mesa viene protegida con materiales ecológicos y reciclables.</li>
+                    <li><strong>Inspección:</strong> Te recomendamos inspeccionar el producto al momento de la entrega.</li>
+                  </ul>
+
+                  <h4>Devoluciones</h4>
+                  <ul>
+                    <li><strong>Política de devolución:</strong> Aceptamos devoluciones dentro de los 30 días posteriores a la entrega.</li>
+                    <li><strong>Condiciones:</strong> El producto debe estar en su estado original, sin uso y con el embalaje original.</li>
+                    <li><strong>Proceso:</strong> Contacta a nuestro servicio al cliente para iniciar el proceso de devolución.</li>
+                    <li><strong>Costo:</strong> Los gastos de envío de devolución corren por cuenta del cliente, excepto en casos de defectos de fabricación.</li>
+                    <li><strong>Reembolso:</strong> El reembolso se procesará dentro de 5-7 días hábiles después de recibir el producto.</li>
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
