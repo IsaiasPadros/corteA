@@ -3,6 +3,7 @@ import CarruselProductos from './CarruselProductos'
 import DestacadosSeccion from './DestacadosSeccion'
 import CategoriasMuebles from './CategoriasMuebles'
 import ModalContacto from './ModalContacto'
+import QuienesSomos from './QuienesSomos'
 import { useEffect, useRef, useState } from 'react'
 
 function Inicio() {
@@ -119,6 +120,9 @@ function Inicio() {
           {/* <div className="scroll-indicador">↓</div> */}
         </div>
       </section>
+
+      {/* Sección Quiénes Somos */}
+      <QuienesSomos />
 
       {/* Sección de productos más vendidos */}
       <section 
