@@ -2,6 +2,7 @@ import '../styles/Inicio.css'
 import TarjetaPropiedad from './TarjetaPropiedad'
 import DestacadosSeccion from './DestacadosSeccion'
 import CategoriasMuebles from './CategoriasMuebles'
+import ModalContacto from './ModalContacto'
 import { useEffect, useRef, useState } from 'react'
 
 function Inicio() {
@@ -95,6 +96,7 @@ function Inicio() {
 
   return (
     <div className="inicio">
+      <ModalContacto />
       {/* Banner con video */}
       <section className="banner">
         <video 

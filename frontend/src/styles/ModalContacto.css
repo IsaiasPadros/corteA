@@ -1,0 +1,302 @@
+/* Overlay del modal */
+.modal-contacto-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease-out;
+  padding: 1rem;
+}
+
+/* Contenido del modal */
+.modal-contacto-contenido {
+  background-color: #EFE9E3 !important;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+/* Header del modal */
+.modal-contacto-header {
+  background-color: #c0c0c0 !important;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(201, 181, 156, 0.3);
+}
+
+.modal-contacto-titulo-header {
+  color: #000000 !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: var(--fuente-principal);
+}
+
+.modal-contacto-cerrar {
+  background: none;
+  border: none;
+  color: #000000 !important;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.modal-contacto-cerrar:hover {
+  color: var(--color-principal);
+  transform: scale(1.1);
+}
+
+/* Contenido principal */
+.modal-contacto-main {
+  background-color: #EFE9E3 !important;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-contacto-unlock {
+  color: rgba(139, 115, 85, 0.6);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: var(--fuente-principal);
+  margin-bottom: 0.5rem;
+}
+
+.modal-contacto-llamado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-contacto-numero-grande {
+  color: var(--color-texto-oscuro);
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+  font-family: var(--fuente-principal);
+  letter-spacing: 0.05em;
+}
+
+.modal-contacto-texto-principal {
+  color: var(--color-texto-oscuro);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: var(--fuente-principal);
+}
+
+.modal-contacto-subtitulo {
+  color: rgba(139, 115, 85, 0.8);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  font-family: var(--fuente-principal);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-contacto-descripcion {
+  color: rgba(139, 115, 85, 0.8);
+  font-size: 0.9rem;
+  font-family: var(--fuente-principal);
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.modal-contacto-descripcion p {
+  margin: 0.25rem 0;
+}
+
+/* Botón CTA */
+.modal-contacto-boton {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 1.2rem 2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--fuente-principal);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-contacto-boton:hover {
+  background-color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.modal-contacto-boton:active {
+  transform: translateY(0);
+}
+
+.modal-contacto-boton span {
+  display: block;
+  line-height: 1.3;
+}
+
+/* Disclaimer */
+.modal-contacto-disclaimer {
+  color: rgba(139, 115, 85, 0.7);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  font-family: var(--fuente-principal);
+  margin: 0;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Media queries para responsive */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 768px) {
+  .modal-contacto-overlay {
+    padding: 1.5rem;
+  }
+
+  .modal-contacto-contenido {
+    max-width: 100%;
+  }
+
+  .modal-contacto-main {
+    padding: 2rem 1.75rem;
+  }
+
+  .modal-contacto-numero-grande {
+    font-size: 3rem;
+  }
+
+  .modal-contacto-texto-principal {
+    font-size: 1.1rem;
+  }
+
+  .modal-contacto-header {
+    padding: 0.9rem 1.2rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 576px) {
+  .modal-contacto-overlay {
+    padding: 1.5rem 1rem;
+  }
+
+  .modal-contacto-contenido {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 8px;
+  }
+
+  .modal-contacto-main {
+    padding: 2rem 1.5rem;
+  }
+
+  .modal-contacto-header {
+    padding: 0.9rem 1.2rem;
+  }
+
+  .modal-contacto-numero-grande {
+    font-size: 2.8rem;
+  }
+
+  .modal-contacto-texto-principal {
+    font-size: 1rem;
+  }
+
+  .modal-contacto-boton {
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .modal-contacto-disclaimer {
+    font-size: 0.7rem;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 400px) {
+  .modal-contacto-overlay {
+    padding: 1rem 0.75rem;
+  }
+
+  .modal-contacto-main {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .modal-contacto-header {
+    padding: 0.8rem 1rem;
+  }
+
+  .modal-contacto-numero-grande {
+    font-size: 2.5rem;
+  }
+
+  .modal-contacto-texto-principal {
+    font-size: 0.95rem;
+  }
+
+  .modal-contacto-boton {
+    padding: 0.9rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}
+
