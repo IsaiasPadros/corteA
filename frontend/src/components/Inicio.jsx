@@ -5,6 +5,7 @@ import CategoriasMuebles from './CategoriasMuebles'
 import ModalContacto from './ModalContacto'
 import QuienesSomos from './QuienesSomos'
 import ValoracionesPopUp from './ValoracionesPopUp'
+import FormularioContacto from './FormularioContacto'
 import { useEffect, useRef, useState } from 'react'
 
 function Inicio() {
@@ -146,8 +147,11 @@ function Inicio() {
         data-section="categorias" 
         className={`section-animate ${isVisible.categorias ? 'visible' : ''}`}
       >
-        <CategoriasMuebles />
+        {/* <CategoriasMuebles /> */}
       </section>
+
+      {/* Sección de formulario de contacto */}
+      <FormularioContacto />
 
       {/* Sección de valoraciones con pop-ups */}
       <ValoracionesPopUp />

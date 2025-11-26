@@ -158,7 +158,7 @@ function ValoracionesPopUp() {
       <div className="valoraciones-contenedor">
         <div className="valoraciones-header">
           <div className="valoraciones-titulo-wrapper">
-            <span className="valoraciones-badge">Testimonios</span>
+            {/* <span className="valoraciones-badge">Testimonios</span> */}
             <h2 className="valoraciones-titulo">
               Lo que dicen nuestros clientes
             </h2>
