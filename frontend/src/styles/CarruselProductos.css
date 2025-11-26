@@ -1,0 +1,240 @@
+.carrusel-productos {
+  width: 100%;
+  position: relative;
+  padding: 0 4rem;
+}
+
+.carrusel-contenedor {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.carrusel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  gap: 0;
+  will-change: transform;
+  transform: translateX(calc(-1 * var(--current-index, 0) * 100%));
+}
+
+.carrusel-item {
+  flex: 0 0 100%;
+  min-width: 0;
+  width: 100%;
+  animation: fadeInUp 0.6s ease-out both;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.carrusel-item > * {
+  max-width: 500px;
+  width: 100%;
+}
+
+.carrusel-boton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--color-fondo-principal);
+  border: 2px solid var(--color-principal);
+  color: var(--color-principal);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(201, 181, 156, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.carrusel-boton:hover:not(:disabled) {
+  background-color: var(--color-principal);
+  color: var(--color-texto-claro);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(201, 181, 156, 0.4);
+}
+
+.carrusel-boton:active:not(:disabled) {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carrusel-boton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.carrusel-boton-izquierda {
+  left: 0.5rem;
+}
+
+.carrusel-boton-derecha {
+  right: 0.5rem;
+}
+
+.carrusel-indicadores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.carrusel-indicador {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--color-principal);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  outline: none;
+}
+
+.carrusel-indicador:hover {
+  transform: scale(1.2);
+  background-color: rgba(201, 181, 156, 0.3);
+}
+
+.carrusel-indicador.activo {
+  background-color: var(--color-principal);
+  width: 32px;
+  border-radius: 6px;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive - Tablet */
+@media (max-width: 992px) {
+  .carrusel-productos {
+    padding: 0 2.5rem;
+  }
+
+  .carrusel-item {
+    padding: 0 0.75rem;
+  }
+
+  .carrusel-item > * {
+    max-width: 450px;
+  }
+
+  .carrusel-boton {
+    width: 44px;
+    height: 44px;
+  }
+
+  .carrusel-boton-izquierda {
+    left: 0.25rem;
+  }
+
+  .carrusel-boton-derecha {
+    right: 0.25rem;
+  }
+}
+
+/* Responsive - Móvil */
+@media (max-width: 576px) {
+  .carrusel-productos {
+    padding: 0 1rem;
+  }
+
+  .carrusel-contenedor {
+    margin-bottom: 1.5rem;
+  }
+
+  .carrusel-item {
+    padding: 0 0.5rem;
+  }
+
+  .carrusel-item > * {
+    max-width: 100%;
+  }
+
+  .carrusel-boton {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(249, 248, 246, 0.95);
+  }
+
+  .carrusel-boton-izquierda {
+    left: 0.5rem;
+  }
+
+  .carrusel-boton-derecha {
+    right: 0.5rem;
+  }
+
+  .carrusel-indicadores {
+    margin-top: 1.5rem;
+    gap: 0.5rem;
+  }
+
+  .carrusel-indicador {
+    width: 10px;
+    height: 10px;
+  }
+
+  .carrusel-indicador.activo {
+    width: 24px;
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .carrusel-track {
+    transition: none;
+  }
+
+  .carrusel-boton {
+    transition: none;
+  }
+
+  .carrusel-indicador {
+    transition: none;
+  }
+}
+
+/* Soporte para pantallas muy pequeñas */
+@media (max-width: 375px) {
+  .carrusel-productos {
+    padding: 0 1.5rem;
+  }
+
+  .carrusel-boton {
+    width: 36px;
+    height: 36px;
+  }
+
+  .carrusel-boton svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .carrusel-boton-izquierda {
+    left: 0.25rem;
+  }
+
+  .carrusel-boton-derecha {
+    right: 0.25rem;
+  }
+}
+

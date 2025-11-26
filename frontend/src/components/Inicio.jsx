@@ -1,5 +1,5 @@
 import '../styles/Inicio.css'
-import TarjetaPropiedad from './TarjetaPropiedad'
+import CarruselProductos from './CarruselProductos'
 import DestacadosSeccion from './DestacadosSeccion'
 import CategoriasMuebles from './CategoriasMuebles'
 import ModalContacto from './ModalContacto'
@@ -129,14 +129,7 @@ function Inicio() {
           titulo="Productos más vendidos" 
           subtitulo="Muebles de carpintería artesanal de la más alta calidad"
         >
-          <div className="propiedades-grid">
-            {productosMasVendidos.map(producto => (
-              <TarjetaPropiedad 
-                key={producto.id} 
-                propiedad={producto} 
-              />
-            ))}
-          </div>
+          <CarruselProductos productos={productosMasVendidos} />
           <div className="centrado">
             <a href="#productos" className="boton-secundario">Ver Todos los Productos</a>
           </div>
