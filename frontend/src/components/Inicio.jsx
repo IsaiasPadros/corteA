@@ -4,6 +4,7 @@ import DestacadosSeccion from './DestacadosSeccion'
 import CategoriasMuebles from './CategoriasMuebles'
 import ModalContacto from './ModalContacto'
 import QuienesSomos from './QuienesSomos'
+import ValoracionesPopUp from './ValoracionesPopUp'
 import { useEffect, useRef, useState } from 'react'
 
 function Inicio() {
@@ -147,6 +148,9 @@ function Inicio() {
       >
         <CategoriasMuebles />
       </section>
+
+      {/* Sección de valoraciones con pop-ups */}
+      <ValoracionesPopUp />
 
       {/* Sección de contacto con Corte A */}
       <section 
