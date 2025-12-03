@@ -76,25 +76,34 @@ function ReproductorVideos() {
       }
     }
 
+    const handlePlay = () => {
+      setIsPlaying(true)
+    }
+
+    const handlePause = () => {
+      setIsPlaying(false)
+    }
+
     const handleLoadedMetadata = () => {
       // Intentar reproducir automáticamente (solo si está mute)
       video.muted = isMuted
-      const playPromise = video.play()
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            setIsPlaying(true)
-          })
-          .catch(() => {
-            // Si falla, simplemente no reproducir automáticamente
-            setIsPlaying(false)
-          })
+      if (isMuted) {
+        const playPromise = video.play()
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setIsPlaying(true)
+            })
+            .catch(() => {
+              setIsPlaying(false)
+            })
+        }
       }
     }
 
     const handleCanPlay = () => {
       // Si el video puede reproducirse y está mute, intentar reproducir
-      if (isMuted && !isPlaying) {
+      if (isMuted && !isPlaying && video.paused) {
         video.muted = true
         const playPromise = video.play()
         if (playPromise !== undefined) {
@@ -103,15 +112,17 @@ function ReproductorVideos() {
               setIsPlaying(true)
             })
             .catch(() => {
-              // Silenciosamente fallar si no se puede reproducir
               setIsPlaying(false)
             })
         }
       }
     }
 
+    // Agregar todos los event listeners
     video.addEventListener('timeupdate', handleTimeUpdate)
     video.addEventListener('ended', handleEnded)
+    video.addEventListener('play', handlePlay)
+    video.addEventListener('pause', handlePause)
     video.addEventListener('loadedmetadata', handleLoadedMetadata)
     video.addEventListener('canplay', handleCanPlay)
 
@@ -122,7 +133,7 @@ function ReproductorVideos() {
     video.load()
     
     // Intentar reproducir inmediatamente si está mute (permitido por navegadores)
-    if (isMuted) {
+    if (isMuted && video.paused) {
       const playPromise = video.play()
       if (playPromise !== undefined) {
         playPromise
@@ -130,13 +141,12 @@ function ReproductorVideos() {
             setIsPlaying(true)
           })
           .catch(() => {
-            // Si falla, esperar a que el usuario interactúe
             setIsPlaying(false)
           })
       }
     }
 
-    // Mute todos los demás videos
+    // Mute y pausar todos los demás videos
     const allVideos = containerRef.current?.querySelectorAll('video')
     allVideos?.forEach((v, idx) => {
       if (idx !== videoActual) {
@@ -148,21 +158,31 @@ function ReproductorVideos() {
     return () => {
       video.removeEventListener('timeupdate', handleTimeUpdate)
       video.removeEventListener('ended', handleEnded)
+      video.removeEventListener('play', handlePlay)
+      video.removeEventListener('pause', handlePause)
       video.removeEventListener('loadedmetadata', handleLoadedMetadata)
       video.removeEventListener('canplay', handleCanPlay)
     }
-  }, [videoActual, isMuted, isPlaying])
+  }, [videoActual, isMuted])
 
-  const togglePlay = () => {
+  const togglePlay = (e) => {
+    // Prevenir propagación si viene de un evento
+    if (e) {
+      e.stopPropagation()
+    }
+
     const video = videoRef.current
     if (!video) return
 
     setHasUserInteracted(true)
 
-    if (isPlaying) {
+    // Verificar el estado real del video
+    if (!video.paused) {
+      // Si está reproduciéndose, pausarlo
       video.pause()
       setIsPlaying(false)
     } else {
+      // Si está pausado, reproducirlo
       const playPromise = video.play()
       if (playPromise !== undefined) {
         playPromise
@@ -173,6 +193,8 @@ function ReproductorVideos() {
             console.error("Error al reproducir el video:", error)
             setIsPlaying(false)
           })
+      } else {
+        setIsPlaying(true)
       }
     }
   }
@@ -427,9 +449,15 @@ function ReproductorVideos() {
                       }}
                       onMouseLeave={() => {
                         const vid = videoRefsDesktop.current[index]
-                        if (vid && isActive) {
+                        if (vid && isActive && !isPlaying) {
                           vid.pause()
                         }
+                      }}
+                      onPlay={() => {
+                        if (isActive) setIsPlaying(true)
+                      }}
+                      onPause={() => {
+                        if (isActive) setIsPlaying(false)
                       }}
                     />
                     <div className={`reproductor-video-card-overlay ${isActive ? 'active' : ''}`}>
