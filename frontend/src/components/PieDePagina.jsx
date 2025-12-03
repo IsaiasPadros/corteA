@@ -29,27 +29,33 @@ function PieDePagina() {
                 </a>
               </li>
               <li>
-                <a href="#propiedades" className="pie-link">
-                  <span className="pie-link-icono">→</span>
-                  <span>Muebles</span>
-                </a>
-              </li>
-              <li>
-                <a href="#servicios" className="pie-link">
-                  <span className="pie-link-icono">→</span>
-                  <span>Servicios</span>
-                </a>
-              </li>
-              <li>
                 <a href="#nosotros" className="pie-link">
                   <span className="pie-link-icono">→</span>
                   <span>Nosotros</span>
                 </a>
               </li>
               <li>
+                <a href="#proyectos" className="pie-link">
+                  <span className="pie-link-icono">→</span>
+                  <span>Proyectos</span>
+                </a>
+              </li>
+              <li>
                 <a href="#contacto" className="pie-link">
                   <span className="pie-link-icono">→</span>
                   <span>Contacto</span>
+                </a>
+              </li>
+              <li>
+                <a href="#galeria" className="pie-link">
+                  <span className="pie-link-icono">→</span>
+                  <span>Galería</span>
+                </a>
+              </li>
+              <li>
+                <a href="#servicios" className="pie-link">
+                  <span className="pie-link-icono">→</span>
+                  <span>Servicios</span>
                 </a>
               </li>
             </ul>
