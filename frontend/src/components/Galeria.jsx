@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Lightbox from 'yet-another-react-lightbox'
+import Zoom from 'yet-another-react-lightbox/plugins/zoom'
 import 'yet-another-react-lightbox/styles.css'
 import '../styles/Galeria.css'
 
@@ -105,15 +106,21 @@ function Galeria() {
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox con zoom */}
       <Lightbox
         open={open}
         close={() => setOpen(false)}
         index={index}
         slides={slides}
-        render={{
-          buttonPrev: () => null,
-          buttonNext: () => null,
+        plugins={[Zoom]}
+        zoom={{
+          maxZoomPixelRatio: 3,
+          zoomInMultiplier: 2,
+          doubleTapDelay: 300,
+          doubleClickDelay: 300,
+          doubleClickMaxStops: 2,
+          pinchToZoom: true,
+          scrollToZoom: true,
         }}
         controller={{ closeOnBackdropClick: true }}
       />
