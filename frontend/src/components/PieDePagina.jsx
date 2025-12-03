@@ -91,6 +91,7 @@ function PieDePagina() {
         <div className="copyright">
           <p>&copy; {anioActual} <strong>Corte A</strong>. Todos los derechos reservados.</p>
           <p className="copyright-subtitulo">Carpintería artesanal de calidad</p>
+          <p className="copyright-diseno">Diseñada por <strong><a href="https://scripthouse.com.ar/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}><span style={{ color: '#000' }}>Script</span><span style={{ color: '#cc0000' }}>House</span></a></strong></p>
         </div>
       </div>
     </footer>
