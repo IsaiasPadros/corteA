@@ -1,11 +1,12 @@
 import '../styles/Inicio.css'
 import CarruselProductos from './CarruselProductos'
-import DestacadosSeccion from './DestacadosSeccion'
+// import DestacadosSeccion from './DestacadosSeccion'
 import CategoriasMuebles from './CategoriasMuebles'
 import ModalContacto from './ModalContacto'
 import QuienesSomos from './QuienesSomos'
 import ValoracionesPopUp from './ValoracionesPopUp'
 import FormularioContacto from './FormularioContacto'
+import ReproductorVideos from './ReproductorVideos'
 import { useEffect, useRef, useState } from 'react'
 
 function Inicio() {
@@ -126,8 +127,8 @@ function Inicio() {
       {/* Sección Quiénes Somos */}
       <QuienesSomos />
 
-      {/* Sección de productos más vendidos */}
-      <section 
+      {/* Sección de productos más vendidos - COMENTADA TEMPORALMENTE */}
+      {/* <section 
         data-section="propiedades" 
         className={`section-animate ${isVisible.propiedades ? 'visible' : ''}`}
       >
@@ -140,6 +141,14 @@ function Inicio() {
             <a href="#productos" className="boton-secundario">Ver Todos los Productos</a>
           </div>
         </DestacadosSeccion>
+      </section> */}
+
+      {/* Sección de reproductor de videos */}
+      <section 
+        data-section="videos" 
+        className="section-animate visible"
+      >
+        <ReproductorVideos />
       </section>
 
       {/* Sección de categorías de muebles */}
