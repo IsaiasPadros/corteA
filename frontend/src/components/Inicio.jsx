@@ -7,6 +7,7 @@ import QuienesSomos from './QuienesSomos'
 import ValoracionesPopUp from './ValoracionesPopUp'
 import FormularioContacto from './FormularioContacto'
 import ReproductorVideos from './ReproductorVideos'
+import Galeria from './Galeria'
 import { useEffect, useRef, useState } from 'react'
 
 function Inicio() {
@@ -161,6 +162,9 @@ function Inicio() {
 
       {/* Sección de formulario de contacto */}
       <FormularioContacto />
+
+      {/* Sección de galería */}
+      <Galeria />
 
       {/* Sección de valoraciones con pop-ups */}
       <ValoracionesPopUp />

@@ -105,4 +105,30 @@ footer {
   .contenedor {
     padding: 0 0.5rem;
   }
+}
+
+/* Estilos para el lightbox de la galería */
+.yarl__container {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+}
+
+.yarl__slide {
+  padding: 2rem;
+}
+
+.yarl__button {
+  color: var(--color-texto-claro) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.yarl__button:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  transform: scale(1.1);
+}
+
+.yarl__button:focus {
+  outline: 2px solid var(--color-principal);
+  outline-offset: 2px;
 } 
