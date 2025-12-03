@@ -69,7 +69,7 @@ function Galeria() {
   }))
 
   return (
-    <section className="galeria-seccion">
+    <section id="galeria" className="galeria-seccion">
       <div className="galeria-contenedor">
         {/* Header de la sección */}
         <div className="galeria-header">

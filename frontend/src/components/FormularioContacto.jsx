@@ -23,7 +23,7 @@ function FormularioContacto() {
   }
 
   return (
-    <section className="formulario-contacto-seccion">
+    <section id="contacto" className="formulario-contacto-seccion">
       <div className="formulario-contacto-contenedor">
         {/* Elementos decorativos flotantes */}
         <div className="decoracion-flotante decoracion-1"></div>

@@ -30,6 +30,7 @@ function QuienesSomos() {
 
   return (
     <section 
+      id="nosotros"
       ref={sectionRef}
       className={`quienes-somos ${isVisible ? 'visible' : ''}`}
       data-section="quienes-somos"

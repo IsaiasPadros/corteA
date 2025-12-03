@@ -103,7 +103,7 @@ function Inicio() {
     <div className="inicio">
       <ModalContacto />
       {/* Banner con video */}
-      <section className="banner">
+      <section id="inicio" className="banner">
         <video 
           ref={videoRef}
           className="banner-video"
@@ -146,6 +146,7 @@ function Inicio() {
 
       {/* Sección de reproductor de videos */}
       <section 
+        id="proyectos"
         data-section="videos" 
         className="section-animate visible"
       >
@@ -171,6 +172,7 @@ function Inicio() {
 
       {/* Sección de contacto con Corte A */}
       <section 
+        id="servicios"
         data-section="servicios" 
         className={`section-animate ${isVisible.servicios ? 'visible' : ''}`}
       >
