@@ -656,7 +656,7 @@
 
 @media (max-width: 768px) {
   .banner {
-    height: 80vh;
+    height: 94vh;
   }
   
   .banner-contenido {
@@ -722,7 +722,7 @@
 
 @media (max-width: 576px) {
   .banner {
-    height: 70vh;
+    height: 94vh;
   }
   
   .banner-contenido {
