@@ -1,23 +1,25 @@
 .encabezado {
-  color: var(--color-texto-claro);
+  color: var(--color-negro-profundo);
   padding: 1.2rem 0;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(201, 181, 156, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Para Safari */
+  background: rgba(194, 165, 123, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Para Safari */
   transition: all 0.3s ease;
   overflow: visible;
   box-sizing: border-box;
+  border-bottom: 1px solid rgba(155, 124, 87, 0.2);
 }
 
 .encabezado.scrolled {
-  background: rgba(201, 181, 156, 0.9);
+  background: rgba(194, 165, 123, 0.25);
   padding: 0.8rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(155, 124, 87, 0.3);
 }
 
 .encabezado-contenido {
@@ -84,7 +86,7 @@
 .menu-toggle .barra {
   height: 3px;
   width: 100%;
-  background-color: var(--color-texto-claro);
+  background-color: var(--color-bronce-suave);
   border-radius: 10px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -124,7 +126,7 @@
 .menu a {
   background: transparent;
   border: none;
-  color: var(--color-texto-claro);
+  color: var(--color-negro-profundo);
   font-weight: var(--peso-normal);
   cursor: pointer;
   padding: 0.5rem;
@@ -132,17 +134,30 @@
   font-size: 0.95rem;
   display: inline-block;
   text-decoration: none;
-  opacity: 0.9;
+  opacity: 0.85;
+  position: relative;
 }
 
 .menu li.activo a {
-  color: var(--color-texto-oscuro);
-  font-weight: bold;
+  color: var(--color-bronce-suave);
+  font-weight: 600;
   opacity: 1;
 }
 
+.menu li.activo a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-bronce-suave) 0%, var(--color-dorado-humo) 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(155, 124, 87, 0.3);
+}
+
 .menu a:hover {
-  color: var(--color-texto-oscuro);
+  color: var(--color-bronce-suave);
   background: transparent;
   opacity: 1;
 }
@@ -192,13 +207,16 @@
     height: 100vh;
     width: 70%;
     max-width: 300px;
-    background-color: var(--color-principal);
+    background-color: rgba(194, 165, 123, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     transition: right var(--transicion-rapida);
     flex-direction: column;
     justify-content: center;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     padding: 2rem;
+    border-left: 1px solid rgba(155, 124, 87, 0.2);
   }
 
   .navegacion.abierto {
