@@ -1,17 +1,32 @@
 :root {
-  /* Paleta de colores beige/taupe */
-  --color-principal: #C9B59C;        /* Beige medio/tan - color principal y acentos */
-  --color-secundario: #D9CFC7;       /* Taupe claro/greige - bordes y elementos secundarios */
-  --color-fondo-secundario: #EFE9E3; /* Beige claro - fondos secundarios */
-  --color-fondo-principal: #F9F8F6;  /* Muy claro, casi blanco - fondo principal */
-  --color-texto-oscuro: #8B7355;     /* Beige oscuro derivado - texto principal */
-  --color-texto-claro: #F9F8F6;      /* Texto claro sobre fondos oscuros */
+  /* ============================================
+     PALETA DE COLORES GLOBAL - CORTE A
+     ============================================
+     Modifica estos colores para cambiar toda la aplicación
+     Cada componente puede sobrescribir estos valores si es necesario
+  */
   
-  /* Colores legacy (mapeados a nueva paleta) */
-  --color-azul: #C9B59C;             /* Mapeado a color principal */
-  --color-naranja: #C9B59C;          /* Mapeado a color principal para consistencia */
-  --color-gris-oscuro: #8B7355;      /* Mapeado a texto oscuro */
-  --color-blanco: #F9F8F6;           /* Mapeado a fondo principal */
+  /* Colores principales de la paleta */
+  --color-negro-profundo: #0D0D0D;    /* Fondo principal */
+  --color-bronce-suave: #9B7C57;      /* Acentos, títulos */
+  --color-dorado-humo: #C2A57B;       /* Highlight fino */
+  --color-gris-carbon: #1A1A1A;       /* Secciones, bloques */
+  --color-gris-humo: #B8B8B8;         /* Textos secundarios */
+  
+  /* Variables semánticas globales (usar estas en los componentes) */
+  --color-principal: var(--color-bronce-suave);        /* Color principal y acentos */
+  --color-secundario: var(--color-dorado-humo);         /* Color secundario y highlights */
+  --color-fondo-principal: var(--color-negro-profundo); /* Fondo principal */
+  --color-fondo-secundario: var(--color-gris-carbon);   /* Fondos secundarios y bloques */
+  --color-texto-oscuro: var(--color-bronce-suave);      /* Texto principal */
+  --color-texto-claro: #FFFFFF;                         /* Texto claro sobre fondos oscuros */
+  --color-texto-secundario: var(--color-gris-humo);     /* Textos secundarios */
+  
+  /* Colores legacy (mapeados a nueva paleta para compatibilidad) */
+  --color-azul: var(--color-bronce-suave);
+  --color-naranja: var(--color-bronce-suave);
+  --color-gris-oscuro: var(--color-gris-carbon);
+  --color-blanco: #FFFFFF;
   
   /* Fuentes */
   --fuente-principal: 'Roboto', sans-serif;

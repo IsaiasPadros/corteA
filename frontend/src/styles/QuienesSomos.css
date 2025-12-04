@@ -1,7 +1,20 @@
+/* ============================================
+   QUIENES SOMOS - Estilos del componente
+   ============================================
+   Este componente usa la paleta de colores global definida en variables.css
+   
+   Para sobrescribir colores específicos de este componente, puedes agregar:
+   .quienes-somos {
+     --color-bronce-suave: #tu-color-personalizado;
+   }
+   
+   Esto solo afectará a este componente y sus hijos.
+*/
+
 .quienes-somos {
   width: 100%;
   padding: 5rem 2rem;
-  background-color: var(--color-fondo-principal);
+  background-color: var(--color-negro-profundo);
   position: relative;
   overflow: hidden;
 }
@@ -16,17 +29,19 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--color-secundario) 20%,
-    var(--color-secundario) 80%,
+    var(--color-bronce-suave) 20%,
+    var(--color-dorado-humo) 50%,
+    var(--color-bronce-suave) 80%,
     transparent 100%
   );
+  box-shadow: 0 0 15px rgba(155, 124, 87, 0.2);
 }
 
 .quienes-somos-contenedor {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1fr 1.5fr;
   gap: 5rem;
   align-items: center;
 }
@@ -40,23 +55,25 @@
   position: absolute;
   top: -25px;
   left: 0;
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--color-principal) 0%, transparent 100%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-bronce-suave) 0%, var(--color-dorado-humo) 50%, transparent 100%);
+  box-shadow: 0 0 10px rgba(155, 124, 87, 0.3);
 }
 
 .quienes-somos-titulo {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3.5rem;
   font-weight: 400;
-  letter-spacing: 0.08em;
-  color: var(--color-texto-oscuro);
-  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+  color: var(--color-bronce-suave);
+  margin-bottom: 2.5rem;
   line-height: 1.1;
   position: relative;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 0 2px 10px rgba(155, 124, 87, 0.2);
 }
 
 .quienes-somos.visible .quienes-somos-titulo {
@@ -74,7 +91,7 @@
 .quienes-somos-intro {
   font-size: 1.15rem;
   line-height: 1.8;
-  color: var(--color-texto-oscuro);
+  color: var(--color-gris-humo);
   font-weight: 500;
   opacity: 0;
   transform: translateY(20px);
@@ -88,22 +105,23 @@
 }
 
 .quienes-somos-intro strong {
-  color: var(--color-principal);
+  color: var(--color-dorado-humo);
   font-weight: 600;
+  text-shadow: 0 0 10px rgba(194, 165, 123, 0.2);
+  letter-spacing: 0.02em;
 }
 
 .quienes-somos-parrafo {
   font-size: 1rem;
   line-height: 1.8;
-  color: var(--color-texto-oscuro);
-  opacity: 0.85;
+  color: var(--color-gris-humo);
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .quienes-somos.visible .quienes-somos-parrafo {
-  opacity: 0.85;
+  opacity: 0.9;
   transform: translateY(0);
 }
 
@@ -115,85 +133,8 @@
   transition-delay: 0.4s;
 }
 
-/* Valores - Ahora en la derecha */
-.quienes-somos-valores {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  margin-top: 2rem;
-}
 
-.quienes-somos-valor {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.25rem;
-  background-color: var(--color-fondo-secundario);
-  border-radius: 10px;
-  border-left: 3px solid var(--color-principal);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.quienes-somos.visible .quienes-somos-valor {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.quienes-somos.visible .quienes-somos-valor:nth-child(1) {
-  transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
-}
-
-.quienes-somos.visible .quienes-somos-valor:nth-child(2) {
-  transition: opacity 0.6s ease 0.6s, transform 0.6s ease 0.6s;
-}
-
-.quienes-somos.visible .quienes-somos-valor:nth-child(3) {
-  transition: opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s;
-}
-
-.quienes-somos-valor:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(201, 181, 156, 0.2);
-  border-left-color: var(--color-texto-oscuro);
-}
-
-.quienes-somos-valor-icono {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  color: var(--color-principal);
-  background-color: rgba(201, 181, 156, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.7rem;
-}
-
-.quienes-somos-valor-icono svg {
-  width: 100%;
-  height: 100%;
-}
-
-.quienes-somos-valor-contenido h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--color-texto-oscuro);
-  margin-bottom: 0.4rem;
-  font-family: var(--fuente-principal);
-}
-
-.quienes-somos-valor-contenido p {
-  font-size: 0.9rem;
-  color: var(--color-texto-oscuro);
-  opacity: 0.8;
-  margin: 0;
-  line-height: 1.5;
-}
-
-/* Lado derecho - Elemento visual */
+/* Lado derecho - Estadísticas minimalistas */
 .quienes-somos-derecha {
   display: flex;
   justify-content: center;
@@ -201,86 +142,188 @@
   position: relative;
 }
 
-.quienes-somos-visual {
+.quienes-somos-estadisticas {
   width: 100%;
-  max-width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 0;
   opacity: 0;
   transform: translateX(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.quienes-somos.visible .quienes-somos-visual {
+.quienes-somos.visible .quienes-somos-estadisticas {
   opacity: 1;
   transform: translateX(0);
   transition-delay: 0.3s;
 }
 
-.quienes-somos-cuadro-principal {
-  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-texto-oscuro) 100%);
-  border-radius: 16px;
-  padding: 3rem 2.5rem;
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(139, 115, 85, 0.2);
+.quienes-somos-estadistica {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
   position: relative;
-  overflow: hidden;
-  margin-bottom: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.quienes-somos-cuadro-principal::before {
+.quienes-somos-estadistica:hover {
+  transform: translateY(-2px);
+}
+
+.quienes-somos-estadistica:first-child {
+  padding-left: 0;
+}
+
+.quienes-somos-estadistica:last-child {
+  padding-right: 0;
+}
+
+.quienes-somos-estadistica-numero {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 1.25rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.02em;
+}
+
+.quienes-somos-estadistica:hover .quienes-somos-estadistica-numero {
+  text-shadow: 0 0 30px rgba(155, 124, 87, 0.3);
+  transform: scale(1.02);
+}
+
+.quienes-somos.visible .quienes-somos-estadistica-numero {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quienes-somos.visible .quienes-somos-estadistica:nth-child(1) .quienes-somos-estadistica-numero {
+  transition-delay: 0.4s;
+}
+
+.quienes-somos.visible .quienes-somos-estadistica:nth-child(3) .quienes-somos-estadistica-numero {
+  transition-delay: 0.5s;
+}
+
+.quienes-somos.visible .quienes-somos-estadistica:nth-child(5) .quienes-somos-estadistica-numero {
+  transition-delay: 0.6s;
+}
+
+.quienes-somos-estadistica-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-bronce-suave);
+  letter-spacing: 0.2em;
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+}
+
+.quienes-somos-estadistica:hover .quienes-somos-estadistica-label {
+  color: var(--color-dorado-humo);
+  letter-spacing: 0.25em;
+}
+
+.quienes-somos.visible .quienes-somos-estadistica-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quienes-somos.visible .quienes-somos-estadistica:nth-child(1) .quienes-somos-estadistica-label {
+  transition-delay: 0.5s;
+}
+
+.quienes-somos.visible .quienes-somos-estadistica:nth-child(3) .quienes-somos-estadistica-label {
+  transition-delay: 0.6s;
+}
+
+.quienes-somos.visible .quienes-somos-estadistica:nth-child(5) .quienes-somos-estadistica-label {
+  transition-delay: 0.7s;
+}
+
+.quienes-somos-estadistica-label span {
+  display: block;
+}
+
+.quienes-somos-estadistica-descripcion {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #FFFFFF;
+  opacity: 0;
+  margin: 0;
+  transform: translateY(15px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.quienes-somos.visible .quienes-somos-estadistica-descripcion {
+  opacity: 0.9;
+  transform: translateY(0);
+}
+
+.quienes-somos-estadistica:hover .quienes-somos-estadistica-descripcion {
+  opacity: 1;
+  color: #FFFFFF;
+}
+
+.quienes-somos.visible .quienes-somos-estadistica:nth-child(1) .quienes-somos-estadistica-descripcion {
+  transition-delay: 0.6s;
+}
+
+.quienes-somos.visible .quienes-somos-estadistica:nth-child(3) .quienes-somos-estadistica-descripcion {
+  transition-delay: 0.7s;
+}
+
+.quienes-somos.visible .quienes-somos-estadistica:nth-child(5) .quienes-somos-estadistica-descripcion {
+  transition-delay: 0.8s;
+}
+
+.quienes-somos-divider {
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--color-bronce-suave) 10%,
+    var(--color-dorado-humo) 50%,
+    var(--color-bronce-suave) 90%,
+    transparent 100%
+  );
+  opacity: 0.6;
+  flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.quienes-somos-divider::before {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-  animation: pulse 4s ease-in-out infinite;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background: var(--color-bronce-suave);
+  opacity: 0.5;
+  transition: opacity 0.4s ease;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.3;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.5;
-  }
-}
-
-.quienes-somos-cuadro-contenido {
-  position: relative;
-  z-index: 1;
-}
-
-.quienes-somos-numero {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  font-weight: 400;
-  color: var(--color-texto-claro);
-  line-height: 1;
-}
-
-.quienes-somos-numero-grande {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 5rem;
-  font-weight: 400;
-  color: var(--color-texto-claro);
-  line-height: 1;
-  display: block;
-  margin-top: -0.5rem;
-}
-
-.quienes-somos-metrica {
-  font-size: 1.1rem;
-  color: var(--color-texto-claro);
-  opacity: 0.95;
-  margin-top: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+.quienes-somos-estadistica:hover + .quienes-somos-divider::before,
+.quienes-somos-divider:hover::before {
+  opacity: 0.8;
+  box-shadow: 0 0 10px rgba(194, 165, 123, 0.4);
 }
 
 
@@ -298,8 +341,41 @@
     font-size: 3rem;
   }
 
-  .quienes-somos-visual {
-    max-width: 400px;
+  .quienes-somos-estadisticas {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .quienes-somos-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-bronce-suave) 10%,
+      var(--color-dorado-humo) 50%,
+      var(--color-bronce-suave) 90%,
+      transparent 100%
+    );
+    opacity: 0.6;
+    position: relative;
+  }
+
+  .quienes-somos-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 1px;
+    background: var(--color-bronce-suave);
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+  }
+
+  .quienes-somos-estadistica {
+    padding: 0;
   }
 }
 
@@ -333,18 +409,26 @@
     text-align: center;
   }
 
-
-  .quienes-somos-visual {
-    max-width: 100%;
-    margin: 0 auto;
+  .quienes-somos-estadisticas {
+    flex-direction: column;
+    gap: 2rem;
   }
 
-  .quienes-somos-cuadro-principal {
-    padding: 2.5rem 2rem;
+  .quienes-somos-estadistica {
+    padding: 0;
+    text-align: center;
   }
 
-  .quienes-somos-numero-grande {
-    font-size: 4.5rem;
+  .quienes-somos-estadistica-numero {
+    font-size: 3.5rem;
+  }
+
+  .quienes-somos-estadistica-label {
+    font-size: 0.85rem;
+  }
+
+  .quienes-somos-estadistica-descripcion {
+    font-size: 0.8rem;
   }
 }
 
@@ -370,39 +454,16 @@
     font-size: 0.95rem;
   }
 
-  .quienes-somos-valor {
-    padding: 1.25rem;
-    gap: 1rem;
+  .quienes-somos-estadistica-numero {
+    font-size: 3rem;
   }
 
-  .quienes-somos-valor-icono {
-    width: 40px;
-    height: 40px;
-    padding: 0.6rem;
+  .quienes-somos-estadistica-label {
+    font-size: 0.8rem;
   }
 
-  .quienes-somos-valor-contenido h3 {
-    font-size: 1.1rem;
-  }
-
-  .quienes-somos-valor-contenido p {
-    font-size: 0.9rem;
-  }
-
-  .quienes-somos-cuadro-principal {
-    padding: 2rem 1.5rem;
-  }
-
-  .quienes-somos-numero {
-    font-size: 2.5rem;
-  }
-
-  .quienes-somos-numero-grande {
-    font-size: 3.5rem;
-  }
-
-  .quienes-somos-metrica {
-    font-size: 1rem;
+  .quienes-somos-estadistica-descripcion {
+    font-size: 0.75rem;
   }
 }
 
