@@ -1,5 +1,5 @@
 .pie-de-pagina {
-  background: linear-gradient(135deg, var(--color-texto-oscuro) 0%, #6B5D4A 100%);
+  background: #3F362F;
   color: var(--color-texto-claro);
   padding: 4rem 0 2rem;
   margin-top: 0;
@@ -14,7 +14,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, transparent, var(--color-principal), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-bronce-suave), transparent);
   opacity: 0.8;
 }
 
@@ -64,14 +64,15 @@
 .pie-logo-linea {
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-principal), transparent);
+  background: linear-gradient(90deg, var(--color-bronce-suave), transparent);
   margin-top: 0.5rem;
 }
 
 .pie-descripcion {
   font-size: 1rem;
   line-height: 1.8;
-  color: rgba(249, 248, 246, 0.85);
+  color: var(--color-texto-secundario);
+  opacity: 0.9;
   font-weight: 300;
   letter-spacing: 0.02em;
 }
@@ -94,7 +95,7 @@
   left: 0;
   width: 40px;
   height: 2px;
-  background-color: var(--color-principal);
+  background-color: var(--color-bronce-suave);
 }
 
 .pie-links {
@@ -111,12 +112,13 @@
 }
 
 .pie-link {
-  color: rgba(249, 248, 246, 0.8);
+  color: var(--color-texto-secundario);
+  opacity: 0.85;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all var(--transicion-rapida);
   font-size: 0.95rem;
   position: relative;
   padding: 0.25rem 0;
@@ -126,9 +128,9 @@
 .pie-link-icono {
   opacity: 0;
   transform: translateX(-10px);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all var(--transicion-rapida);
   font-size: 0.9rem;
-  color: var(--color-principal);
+  color: var(--color-bronce-suave);
   width: 0;
   overflow: hidden;
 }
@@ -155,7 +157,7 @@
   align-items: flex-start;
   gap: 1rem;
   margin-bottom: 1.25rem;
-  transition: transform 0.3s ease;
+  transition: transform var(--transicion-rapida);
 }
 
 .pie-contacto-item:hover {
@@ -165,21 +167,23 @@
 .pie-icono {
   width: 20px;
   height: 20px;
-  color: var(--color-principal);
+  color: var(--color-bronce-suave);
   flex-shrink: 0;
   margin-top: 0.2rem;
 }
 
 .pie-contacto-item p {
   margin: 0;
-  color: rgba(249, 248, 246, 0.85);
+  color: var(--color-texto-secundario);
+  opacity: 0.9;
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
 .pie-separador {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201, 181, 156, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-dorado-humo), transparent);
+  opacity: 0.3;
   margin: 2.5rem 0 1.5rem;
 }
 
@@ -189,20 +193,22 @@
 }
 
 .copyright p {
-  font-weight: 300;
+  font-weight: var(--peso-pie);
   font-size: 0.9rem;
   margin: 0.25rem 0;
-  color: rgba(249, 248, 246, 0.7);
+  color: var(--color-texto-secundario);
+  opacity: 0.8;
 }
 
 .copyright strong {
   font-weight: 600;
-  color: var(--color-principal);
+  color: var(--color-bronce-suave);
 }
 
 .copyright-subtitulo {
   font-size: 0.85rem;
-  color: rgba(249, 248, 246, 0.5);
+  color: var(--color-texto-secundario);
+  opacity: 0.6;
   font-style: italic;
   letter-spacing: 0.05em;
 }
