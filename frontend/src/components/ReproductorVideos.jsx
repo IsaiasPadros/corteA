@@ -36,9 +36,14 @@ function ReproductorVideos() {
   const [isHovered, setIsHovered] = useState(false)
   const videoRef = useRef(null)
   const videoRefs = useRef({})
+  const cardRefs = useRef({})
+  const observerRef = useRef(null)
+  const isUserScrolling = useRef(false)
+  const scrollTimeoutRef = useRef(null)
+  const videoActualRef = useRef(videoActual)
 
-  const cambiarVideo = (nuevoIndice) => {
-    if (nuevoIndice >= 0 && nuevoIndice < videos.length) {
+  const cambiarVideo = (nuevoIndice, fromScroll = false) => {
+    if (nuevoIndice >= 0 && nuevoIndice < videos.length && nuevoIndice !== videoActual) {
       // Pausar todos los videos
       Object.values(videoRefs.current).forEach(vid => {
         if (vid) vid.pause()
@@ -173,6 +178,136 @@ function ReproductorVideos() {
     }
   }, [videoActual, isMuted])
 
+  // Actualizar ref cuando cambia videoActual
+  useEffect(() => {
+    videoActualRef.current = videoActual
+  }, [videoActual])
+
+  // Intersection Observer para detectar qué video está más visible durante el scroll
+  useEffect(() => {
+    let initTimeout = null
+    let cleanupFunction = null
+
+    // Esperar a que las tarjetas estén disponibles
+    const initScrollDetection = () => {
+      const cards = []
+      for (let i = 0; i < videos.length; i++) {
+        if (cardRefs.current[i]) {
+          cards.push({ index: i, element: cardRefs.current[i] })
+        }
+      }
+
+      if (cards.length === 0) {
+        // Si no hay cards todavía, reintentar después de un momento
+        initTimeout = setTimeout(initScrollDetection, 100)
+        return null
+      }
+
+      // Función para determinar qué video está más visible basado en la distancia al centro del viewport
+      const updateActiveVideo = () => {
+        const viewportCenter = window.innerHeight / 2
+        const currentActive = videoActualRef.current
+        
+        let mostVisibleIndex = currentActive
+        let minDistance = Infinity
+
+        cards.forEach(({ index, element }) => {
+          if (!element) return
+          
+          const rect = element.getBoundingClientRect()
+          const cardCenter = rect.top + rect.height / 2
+          const distanceFromCenter = Math.abs(cardCenter - viewportCenter)
+          
+          // Calcular cuánto del card está visible en el viewport
+          const cardTop = Math.max(rect.top, 0)
+          const cardBottom = Math.min(rect.bottom, window.innerHeight)
+          const visibleHeight = Math.max(0, cardBottom - cardTop)
+          const visibilityRatio = visibleHeight / Math.max(rect.height, window.innerHeight * 0.5)
+          
+          // Solo considerar cards que tengan al menos 40% de visibilidad
+          if (visibilityRatio > 0.4) {
+            // Combinar distancia y visibilidad para determinar el mejor candidato
+            const normalizedDistance = distanceFromCenter / window.innerHeight
+            const score = normalizedDistance * (2 - visibilityRatio)
+            
+            if (score < minDistance) {
+              minDistance = score
+              mostVisibleIndex = index
+            }
+          }
+        })
+
+        // Cambiar el video activo si es diferente y tiene buena visibilidad
+        if (mostVisibleIndex !== currentActive && minDistance < Infinity) {
+          cambiarVideo(mostVisibleIndex, true)
+        }
+      }
+
+      // Throttle para el scroll usando requestAnimationFrame
+      let ticking = false
+      const handleScroll = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            isUserScrolling.current = true
+            updateActiveVideo()
+            ticking = false
+            
+            // Limpiar timeout anterior
+            if (scrollTimeoutRef.current) {
+              clearTimeout(scrollTimeoutRef.current)
+            }
+            
+            // Marcar que dejó de hacer scroll después de un momento
+            scrollTimeoutRef.current = setTimeout(() => {
+              isUserScrolling.current = false
+            }, 300)
+          })
+          ticking = true
+        }
+      }
+
+      // Event listeners para scroll
+      window.addEventListener('scroll', handleScroll, { passive: true })
+      window.addEventListener('touchmove', handleScroll, { passive: true })
+      
+      // Actualizar inicialmente después de un pequeño delay
+      const initialTimeout = setTimeout(() => {
+        updateActiveVideo()
+      }, 500)
+
+      // Retornar función de cleanup
+      return () => {
+        window.removeEventListener('scroll', handleScroll)
+        window.removeEventListener('touchmove', handleScroll)
+        clearTimeout(initialTimeout)
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current)
+        }
+      }
+    }
+
+    // Iniciar la detección con un pequeño delay para asegurar que las tarjetas estén renderizadas
+    const startTimeout = setTimeout(() => {
+      cleanupFunction = initScrollDetection()
+    }, 100)
+    
+    return () => {
+      clearTimeout(startTimeout)
+      if (initTimeout) {
+        clearTimeout(initTimeout)
+      }
+      if (cleanupFunction) {
+        cleanupFunction()
+      }
+      if (observerRef.current) {
+        observerRef.current.disconnect()
+      }
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
+    }
+  }, [videos.length])
+
   const togglePlay = (e) => {
     // Prevenir propagación si viene de un evento
     if (e) {
@@ -243,7 +378,10 @@ function ReproductorVideos() {
             
             return (
               <div 
-                key={video.id} 
+                key={video.id}
+                ref={(el) => {
+                  cardRefs.current[index] = el
+                }}
                 className={`reproductor-video-card ${isLeft ? 'left' : 'right'} ${isActive ? 'active' : ''}`}
                 onClick={() => cambiarVideo(index)}
               >
